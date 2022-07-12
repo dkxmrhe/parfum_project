@@ -1,0 +1,11 @@
+
+    <a href="/"><img class="header_main" src="/uploads/logo.png" width="1000" height="300" alt="x"/></a>
+    {% if user and user.id %}
+    <div class="user-nickname">{{user.nick + '님'}}</div>
+    <a href="/mypage"><button type="button" class="mypage">마이 페이지</button></a>
+    <form action="/auth/logout" method="post">
+        <button class="logout" type="submit">로그아웃</button>
+    </form>
+    {% else %}
+    <a href="/login"><button class="login">로그인</button></a>
+    {% endif %}

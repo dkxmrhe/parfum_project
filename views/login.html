@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parfum Library</title>
+</head>
+<body>
+    <header>
+        {% include 'header.html' %}
+    </header>
+    <div class="login">
+        <form action="/auth/login" method="post">
+            <input type="text" class="login_id" name="userid"/>
+            <input type="password" class="login_pwd" name="password"/>
+            <button type="submit" class="login_button">로그인</button>
+        </form>
+        <a href="/join" class="login_join">회원가입</a>
+        <a href="/idpwdsearch" class="login_idpwdsearch">아이디/비밀번호 찾기</a>
+        <a class="kakao" href="/auth/kakao"><button>카카오톡으로 로그인</button></a>
+        <a class="naver" href="/auth/naver"><button>네이버로 로그인</button></a>
+    </div>   
+    <footer>
+        {% include 'footer.html' %}
+    </footer>     
+</body>
+</html>
