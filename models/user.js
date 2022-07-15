@@ -16,11 +16,8 @@ module.exports = class User extends Sequelize.Model {
                 comment: "로그인 아이디",
             },
             password: {
-                type: Sequelize.STRING(100),
+                type: Sequelize.STRING(500),
                 allowNull: true,
-                validate: {
-                    is: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,15}$/,
-                },
                 comment: "로그인 비밀번호",
             },
             nick: {
@@ -39,13 +36,15 @@ module.exports = class User extends Sequelize.Model {
                 allowNull: true,
                 comment: "실제 이름",
             },
-            email: {
+            email1: {
                 type: Sequelize.STRING(50),
                 allowNull: true,
-                validate: {
-                    isEmail: true,
-                },
-                comment: "이메일",
+                comment: "이메일 아이디",
+            },
+            email2: {
+                type: Sequelize.STRING(50),
+                allowNull: true,
+                comment: "이메일 페이지",
             },
             phone: {
                 type: Sequelize.STRING(72),

@@ -19,4 +19,16 @@ router.get('/join', isNotLoggedIn, (req, res) => {
     res.render('join');
 });
 
+router.get('/mypage', isLoggedIn, (req, res) => {
+    res.render('mypage');
+});
+
+router.get('/qnalist', (req, res) => {
+    res.render('qnalist');
+});
+
+router.get('/qnawrite', isLoggedIn, (req, res) => {
+    if(!isLoggedIn) res.rendirect('/login');
+    else res.render('qnawrite');
+});
 module.exports = router;

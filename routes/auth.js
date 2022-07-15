@@ -6,16 +6,27 @@ const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 const User = require('../models/user');
 
 router.post('/join', isNotLoggedIn, async(req, res, next) => {
-    const { user_id, password } = req.body;
+    const { userid, password, nick, name, email1, email2, phone, gender, birth, zipcode, address, detailaddress } = req.body;
     try {
-        const exUser = await User.findOne({ where: { user_id }});
+        const exUser = await User.findOne({ where: { userid }});
         if(exUser) {
             return res.redirect('/join?error=exist');
         }
+        const sumemail = email1 + '@' + email2;
         const hash = await bcrypt.hash(password, 12);
         await User.create({
-            user_id,
+            userid,
             password: hash,
+            nick,
+            name,
+            email1,
+            email2,
+            phone,
+            gender,
+            birth,
+            zipcode,
+            address,
+            detailaddress,
         });
         return res.redirect('/');
     } catch(err) {
