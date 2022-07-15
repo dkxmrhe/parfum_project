@@ -14,6 +14,11 @@ module.exports = class Board extends Sequelize.Model {
                 allowNull: false,
                 comment: "게시판 제목",
             },
+            nick: {
+                type: Sequelize.STRING(100),
+                allowNull: false,
+                comment: "글쓴이의 닉네임",
+            },
             content: {
                 type: Sequelize.STRING(1000),
                 allowNull: false,
