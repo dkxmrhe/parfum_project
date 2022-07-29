@@ -14,16 +14,33 @@ module.exports = class Board extends Sequelize.Model {
                 allowNull: false,
                 comment: "게시판 제목",
             },
-            nick: {
+            author: {
                 type: Sequelize.STRING(100),
                 allowNull: false,
-                comment: "글쓴이의 닉네임",
+                comment: "작성자",
             },
             content: {
                 type: Sequelize.STRING(1000),
                 allowNull: false,
                 comment: "게시판 내용",
+            },
+            watch: {
+                type: Sequelize.INTEGER,
+                defaultValue: 0,
+                allowNull: false,
+                comment: "조회수",
             }
-        })
+        }, {
+            sequelize,
+            timestamps: true,
+            underscored: true,
+            modelName: "Board",
+            tableName: "boards",
+            paranoid: true,
+            charset: "utf8",
+            collate: "utf8_general_ci",
+        });
     }
-}
+
+    static associate(db) {}
+};

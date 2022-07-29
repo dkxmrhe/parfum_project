@@ -19,8 +19,7 @@ router.post('/join', isNotLoggedIn, async(req, res, next) => {
             password: hash,
             nick,
             name,
-            email1,
-            email2,
+            email: sumemail,
             phone,
             gender,
             birth,
@@ -89,7 +88,8 @@ router.post('/out', isLoggedIn, async(req, res, next) => {
     });
     res.redirect(303, '/');
     } catch(err) {
-        console.error(err); return next(err);
+        console.error(err); 
+        return next(err);
     }
 });
 

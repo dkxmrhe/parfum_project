@@ -36,15 +36,10 @@ module.exports = class User extends Sequelize.Model {
                 allowNull: true,
                 comment: "실제 이름",
             },
-            email1: {
-                type: Sequelize.STRING(50),
+            email: {
+                type: Sequelize.STRING(100),
                 allowNull: true,
-                comment: "이메일 아이디",
-            },
-            email2: {
-                type: Sequelize.STRING(50),
-                allowNull: true,
-                comment: "이메일 페이지",
+                comment: "이메일",
             },
             phone: {
                 type: Sequelize.STRING(72),

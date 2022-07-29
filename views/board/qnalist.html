@@ -8,7 +8,22 @@
 </head>
 <body>
     {% include 'header.html' %}
-    <li><a></a></li>
+    <table>
+        게시판
+        <tr>
+            <td>제목</td>
+            <td>작성자</td>
+            <td>작성일</td>
+        </tr>
+        {% for board in boards %}
+        <tr>
+            <td><a href="/qnaread?id={{board.id}}">{{board.subject}}</a></td>
+            <td>{{board.author}}</td>
+            <td>{{board.createdAt}}</td>
+            <td>{{board.watch}}</td>
+        </tr>
+        {% endfor %}
+    </table>
     <a href="/qnawrite">글 쓰기</a>
     {% include 'footer.html' %}
 </body>

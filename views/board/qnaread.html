@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parfum Library</title>
+</head>
+<body>
+    <p>글 제목</p>
+    <p>{{board.subject}}</p>
+    <p>작성자</p>
+    <p>{{board.author}}</p>
+    <p>작성 일자</p>
+    <p>{{board.createdAt}}</p>
+    <p>내용</p>
+    <p>{{board.content}}</p>
+{% if user.nick == board.author %}    
+<a href="/qnaupdate?id={{board.id}}">게시글 수정</a>
+<form action="/qna/delete" method="post">
+    <input type="text" name="bid" value="{{board.id}}" hidden/>
+    <button class="board_delete" type="submit">게시글 삭제</button>
+</form>
+{% endif %}
+<a href="/qnalist">목록</a>
+
+</body>
+</html>

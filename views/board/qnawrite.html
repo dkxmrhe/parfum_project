@@ -9,8 +9,9 @@
 <body>
     <form action="/qna/create" method="post">
     제목 : <input type="text" name="subject" placeholder="30자 이하로 입력해주세요." maxlength="30"/>작성자 : {{user.nick}}<br/>
+    <input type="text" name="nick" value="{{user.nick}}" hidden/>
     <hr />
-    내용 : <textarea></textarea>
+    내용 : <textarea name="content"></textarea>
     <button type="submit">글 등록</button>
     </form>
     <a href="/qnalist">취소</a>

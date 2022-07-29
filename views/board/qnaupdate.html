@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Parfum Library</title>
 </head>
 <body>
-    
+    <form action="/qna/update" method="post">
+        <input type="text" name="bid" value="{{board.id}}" hidden/>
+        <input type="text" name="subject" value="{{board.subject}}"/>
+        <input type="text" readonly value="{{board.author}}"/>
+        <textarea name="content">{{board.content}}</textarea>
+        <button type="submit">게시글 수정하기</button>
+    </form>
 </body>
 </html>
