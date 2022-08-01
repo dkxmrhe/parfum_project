@@ -30,5 +30,7 @@ module.exports = class Parfum extends Sequelize.Model {
             collate: "utf8_general_ci",
         });
     }
-    static associate(db) {}
+    static associate(db) {
+        db.Parfum.belongsTo(db.Brand, { foreignKey: 'brandname', targetKey: 'name'});
+    }
 }

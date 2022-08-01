@@ -57,11 +57,10 @@ router.get('/qnaupdate', isLoggedIn, async(req, res) => {
     res.render('board/qnaupdate', {board: board[0]});
 });
 
-router.get('/about/:brand', (req, res) => {
-    res.render('brand/aboutsite/:brand');
+router.get('/category/:brandname', async(req, res) => {
 });
 
-router.get('/admin/aboutsitewrite', (req, res) => {
-    res.render('brand/aboutsitewrite');
-})
+router.get('/brandParfumWrite', isLoggedIn, (req, res) => {
+    res.render('brand/brandParfumWrite');
+});
 module.exports = router;

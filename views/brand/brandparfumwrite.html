@@ -12,7 +12,16 @@
         {% include 'header.html' %}
     </header>
     <section>
-        
+        <form action="/brand/write" method="post">
+            브랜드 이름 : <input type="text" class="writeBrandName" name="brandname" />
+            향수 이름 : <input type="text" class="writeParfumName" name="name" />
+            <button type="submit">향수 등록</button>
+        </form>
+        <form action="/brand/brandCreate" method="post">
+            브랜드 이름 : <input type="text" class="writeName" name="name" />
+            나라 : <input type="text" class="writeCountry" name="country" />
+            <button type="submit">브랜드 등록</button>
+        </form>
     </section>
     <footer>
         {% include 'footer.html' %}
