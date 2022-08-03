@@ -19,6 +19,16 @@ module.exports = class Parfum extends Sequelize.Model {
                 allowNull: false,
                 comment: "향수 이름",
             },
+            photo: {
+                type: Sequelize.STRING(100),
+                allowNull: false,
+                comment: "향수 사진 경로",
+            },
+            component: {
+                type: Sequelize.STRING(300),
+                allowNull: true,
+                comment: "향수 성분표",
+            },
         }, {
             sequelize,
             timestamps: true,
