@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css" />
+    <title>Parfum Library</title>
+</head>
+<body>
+    <header>
+    {% include 'header.html' %}
+    </header>
+    <section>
+        <img src="/uploads/{{parfum.photo}}"/>
+        <p>향수 브랜드 이름</p>
+        <p>{{parfum.brandname}}</p>
+        <p>향수 이름</p>
+        <p>{{parfum.name}}</p>
+        <p>향수 성분</p>
+        <p>{{parfum.component}}</p>
+        <form action="/comment/create" method="post">
+            <div>
+                <textarea name="content" placeholder="향수에 대한 내용을 입력해주세요."></textarea>
+                <button type="submit">등록</button>
+            </div>
+        </form>
+    </section>
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
+</body>
+</html>

@@ -31,7 +31,7 @@ module.exports = class Brand extends Sequelize.Model {
         });
     }
 
-    static associations(db) {
-        db.Brand.hasMany(db.Parfum, { foreignKey: 'brandname', sourceKey: 'name'});
+    static associate(db) {
+        //db.Brand.hasMany(db.Parfum, { foreignKey: 'brandname', sourceKey: 'name'});
     }
 }

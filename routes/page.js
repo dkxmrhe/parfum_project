@@ -2,6 +2,7 @@ const express = require('express');
 const { isNotLoggedIn, isLoggedIn } = require('./middlewares');
 const router = express.Router();
 const Board = require('../models/board');
+const Parfum = require('../models/parfum');
 const sequelize = require('sequelize');
 
 router.use((req, res, next) => {
@@ -57,9 +58,18 @@ router.get('/qnaupdate', isLoggedIn, async(req, res) => {
     res.render('board/qnaupdate', {board: board[0]});
 });
 
-router.get('/category/:brandname', async(req, res) => {
+router.get('/parfumread', async(req, res) => {
+    let brandname = req.query.brandname;
+    let name = req.query.name;
+    let parfum = await Parfum.findAll({ where: {brandname: brandname, name: name}});
+    res.render('brand/brandparfumRead', {parfum: parfum[0]});
 });
-
+router.get('/parfumsearch', async(req,res) => {
+    let parfums = await Parfum.findAll({
+        attributes: ['id','brandname','name','photo']
+    });
+    res.render('brand/brandParfumList', {parfums: parfums});
+})
 router.get('/brandParfumWrite', isLoggedIn, (req, res) => {
     res.render('brand/brandParfumWrite');
 });

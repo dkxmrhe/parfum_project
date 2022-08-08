@@ -12,9 +12,11 @@
         {% include 'header.html' %}
     </header>
     <section>
-        <form action="/brand/write" method="post">
+        <form action="/parfum/write" method="post" enctype="multipart/form-data">
+            향수 사진 : <input type="file" class="writePhoto" name="photo" accept="image/*" />
             브랜드 이름 : <input type="text" class="writeBrandName" name="brandname" />
             향수 이름 : <input type="text" class="writeParfumName" name="name" />
+            향수 성분 : <textarea name="component" class="writeParfumComponent"></textarea>
             <button type="submit">향수 등록</button>
         </form>
         <form action="/brand/brandCreate" method="post">

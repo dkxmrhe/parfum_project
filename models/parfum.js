@@ -41,6 +41,6 @@ module.exports = class Parfum extends Sequelize.Model {
         });
     }
     static associate(db) {
-        db.Parfum.belongsTo(db.Brand, { foreignKey: 'brandname', targetKey: 'name'});
+        //db.Parfum.belongsTo(db.Brand, { foreignKey: 'brandname', targetKey: 'name'});
     }
 }

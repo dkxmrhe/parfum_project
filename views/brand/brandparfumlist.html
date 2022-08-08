@@ -13,12 +13,12 @@
     </header>
     <section>
         {% for parfum in parfums %}
-        <div><a href="/{{parfum.brandname}}?name={{parfum.name}}"></a></div>
+        <div><a href="/parfumRead?brandname={{parfum.brandname}}&name={{parfum.name}}"><img src="/uploads/{{parfum.photo}}"/>{{parfum.brandname}}<br><span>{{parfum.name}}</span></a></div><br>
 
         {% endfor %}
-        {% if user.authority == 'Master' %}
-        <a href="admin/aboutsitewrite">글 작성</a>
-        {% endif %}
+        
+        <a href="/brandParfumWrite">글 작성</a>
+        
     </section>
     <footer>
         {% include 'footer.html' %}
