@@ -1,40 +1,35 @@
 const Sequelize = require('sequelize');
 
-module.exports = class Parfum extends Sequelize.Model {
+module.exports = class Post extends Sequelize.Model {
     static init(sequelize) {
         return super.init({
             id: {
                 type: Sequelize.UUID,
                 defaultValue: Sequelize.UUIDV4,
                 primaryKey: true,
-                comment: "향수 고유번호",
+                comment: "댓글 고유번호",
             },
-            brandname: {
+            user_nick: {
                 type: Sequelize.STRING(100),
                 allowNull: false,
-                comment: "향수 브랜드 이름",
+                comment: "작성자",
             },
-            name: {
+            parfum_id: {
                 type: Sequelize.STRING(100),
                 allowNull: false,
-                comment: "향수 이름",
+                comment: "해당 향수 게시물",
             },
-            photo: {
-                type: Sequelize.STRING(100),
-                allowNull: false,
-                comment: "향수 사진 경로",
-            },
-            component: {
-                type: Sequelize.STRING(300),
+            content: {
+                type: Sequelize.STRING(1000),
                 allowNull: true,
-                comment: "향수 성분표",
+                comment: "댓글 내용",
             },
         }, {
             sequelize,
             timestamps: true,
             underscored: true,
-            modelName: "Parfum",
-            tableName: "parfums",
+            modelName: "Post",
+            tableName: "posts",
             paranoid: true,
             charset: "utf8",
             collate: "utf8_general_ci",

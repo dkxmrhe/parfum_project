@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "dkxmrhe1",
-    "database": "database_development",
+    "database": "parfum_database",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "timezone": "Asia/Seoul"

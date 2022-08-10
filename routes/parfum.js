@@ -3,6 +3,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 const Parfum = require('../models/parfum');
+const { Brand } = require('../models');
 
 const router = express.Router();
 
@@ -25,13 +26,13 @@ let upload = multer({storage: storage});
 
 router.post('/write', upload.single('photo'), async(req, res, next) => {
     try{
-        await Parfum.create({
-            brandname: req.body.brandname,
-            name: req.body.name,
-            photo: req.file.filename,
-            component: req.body.component,
-        });
-        res.redirect('/brandParfumWrite');
+            await Parfum.create({
+                brandname: req.body.brandname,
+                name: req.body.name,
+                photo: req.file.filename,
+                component: req.body.component,
+            });
+            res.redirect('/brandParfumWrite');
     } catch(err) {
         console.error(err);
         next(err);

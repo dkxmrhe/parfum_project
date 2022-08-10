@@ -15,6 +15,7 @@ const authRouter = require('./routes/auth');
 const qnaRouter = require('./routes/qna');
 const parfumRouter = require('./routes/parfum');
 const brandRouter = require('./routes/brand');
+const postRouter = require('./routes/post');
 
 const app = express();
 passportConfig();
@@ -55,6 +56,7 @@ app.use('/auth', authRouter);
 app.use('/qna', qnaRouter);
 app.use('/brand', brandRouter);
 app.use('/parfum', parfumRouter);
+app.use('/post', postRouter);
 
 app.use((req, res, next) => {
     const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);

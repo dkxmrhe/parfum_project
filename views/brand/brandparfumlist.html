@@ -13,7 +13,7 @@
     </header>
     <section>
         {% for parfum in parfums %}
-        <div><a href="/parfumRead?brandname={{parfum.brandname}}&name={{parfum.name}}"><img src="/uploads/{{parfum.photo}}"/>{{parfum.brandname}}<br><span>{{parfum.name}}</span></a></div><br>
+        <div><a href="/parfumRead?no={{parfum.id}}"><img src="/uploads/{{parfum.photo}}"/>{{parfum.brandname}}<br><span>{{parfum.name}}</span></a></div><br>
 
         {% endfor %}
         

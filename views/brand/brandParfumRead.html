@@ -12,19 +12,27 @@
     {% include 'header.html' %}
     </header>
     <section>
-        <img src="/uploads/{{parfum.photo}}"/>
+        <img src="/uploads/{{parfums.photo}}"/>
         <p>향수 브랜드 이름</p>
-        <p>{{parfum.brandname}}</p>
+        <p>{{parfums.brandname}}</p>
         <p>향수 이름</p>
-        <p>{{parfum.name}}</p>
+        <p>{{parfums.name}}</p>
         <p>향수 성분</p>
-        <p>{{parfum.component}}</p>
-        <form action="/comment/create" method="post">
+        <p>{{parfums.component}}</p>
+        <form action="/post/comment" method="post">
             <div>
+                <input type="hidden" value="{{parfums.id}}" name="parfumno" />
+                <input type="hidden" value="{{user.nick}}" name="usernick" />
+                <input type="hidden" vallue="{{parfums.brandname}}" name="parfumbrandname" />
+                <input type="hidden" value="{{parfums.name}}" name="parfumname" />
                 <textarea name="content" placeholder="향수에 대한 내용을 입력해주세요."></textarea>
                 <button type="submit">등록</button>
             </div>
         </form>
+        {% for post in posts %}
+            <div>{{post.user_nick}}</div>
+            <div>{{post.content}}</div>
+        {% endfor %}
     </section>
     <footer>
         {% include 'footer.html' %}
