@@ -11,7 +11,7 @@
     <header>
         {% include 'header.html' %}
     </header>
-    <form action="/qna/update" method="post">
+    <form action="/board/update" method="post">
         <input type="text" name="bid" value="{{board.id}}" hidden/>
         <input type="text" name="subject" value="{{board.subject}}"/>
         <input type="text" readonly value="{{board.author}}"/>

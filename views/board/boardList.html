@@ -20,14 +20,14 @@
         </tr>
         {% for board in boards %}
         <tr>
-            <td><a href="/qnaread?id={{board.id}}">{{board.subject}}</a></td>
+            <td><a href="/boardRead?id={{board.id}}">{{board.subject}}</a></td>
             <td>{{board.author}}</td>
             <td>{{board.createdAt}}</td>
             <td>{{board.watch}}</td>
         </tr>
         {% endfor %}
     </table>
-    <a href="/qnawrite">글 쓰기</a>
+    <a href="/boardWrite">글 쓰기</a>
     <footer>
         {% include 'footer.html' %}
     </footer>

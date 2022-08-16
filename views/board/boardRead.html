@@ -20,13 +20,13 @@
     <p>내용</p>
     <p>{{board.content}}</p>
 {% if user.nick == board.author %}    
-<a href="/qnaupdate?id={{board.id}}">게시글 수정</a>
-<form action="/qna/delete" method="post">
+<a href="/boardUpdate?id={{board.id}}">게시글 수정</a>
+<form action="/board/delete" method="post">
     <input type="text" name="bid" value="{{board.id}}" hidden/>
     <button class="board_delete" type="submit">게시글 삭제</button>
 </form>
 {% endif %}
-<a href="/qnalist">목록</a>
+<a href="/boardList">목록</a>
 <footer>
     {% include 'footer.html' %}
 </footer>
