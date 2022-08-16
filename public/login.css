@@ -1,0 +1,75 @@
+section .login {
+    width: 60%;
+    margin-left: 20%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+section .login input {
+    width: 350px;
+    height: 30px;
+    border: 1px solid rgb(2, 35, 2);
+    padding: 5px;
+    border-radius: 5px;
+}
+section .login .join_idpw {
+    width: 350px;
+    display: flex;
+    justify-content: space-around;
+}
+
+section .login .login_button {
+    width: 362px;
+    height: 42px;
+    background-color: rgb(5, 67, 5);
+    border-radius: 5px;
+    border: 1px solid rgb(2, 35, 2);
+    color: bisque;
+}
+section .login .social_login {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+}
+section .login .social_login .kakao_login {
+    display: flex;
+    flex-direction: column;
+}
+
+section .login .social_login a {
+    text-decoration: none;
+    color: black;
+    font-size: 10px;
+}
+
+section .login .social_login img {
+    width: 50px;
+    height: 50px;
+}
+
+section .login .social_login .kakao_login {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+section .login .social_login .naver_login {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+section .login .join_idpw a{
+    text-decoration: none;
+    color: gray;
+    font-size: 14px;
+}

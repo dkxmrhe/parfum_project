@@ -1,0 +1,64 @@
+section .join {
+    width: 50%;
+    margin-left: 25%;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+section .join .main_join {
+    font-size: 14px;
+}
+
+section .join input {
+    width: 200px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid rgb(2, 35, 2);
+
+}
+
+section .join .small_join {
+    color: rgb(246, 69, 69);
+    font-size: 12px;
+}
+
+section .join span #join_address {
+    margin-bottom: 5px;
+}
+
+section .join #join_search {
+    height: 20px;
+    width: 100px;
+    background-color: rgb(5, 67, 5);
+    color: bisque;
+    border-radius: 5px;
+    border: 1px solid rgb(2, 35, 2);
+}
+
+section .join .but {
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    margin-left: 30%;
+
+}
+section .join .but button {
+    width: 80px;
+    height: 30px;
+}
+section .join .but .join_sub {
+    background-color: rgb(5, 67, 5);
+    color: bisque;
+    border-radius: 5px;
+    border: 1px solid rgb(2, 35, 2);
+}
+
+section .join .but .join_cancel {
+    background-color: white;
+    color: rgb(5, 67, 5);
+    border-radius: 5px;
+    border: 1px solid rgb(2, 35, 2);
+}

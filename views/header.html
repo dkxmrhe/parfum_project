@@ -1,17 +1,24 @@
 
-    <a href="/"><img class="header_main" src="/uploads/logo-clean.jpg" width="300" height="100" alt="logo_img"/></a>
-    <nav class="menu_bar">
-        <li><a href="/brand">브랜드 소개</a></li>
-        <li><a href="/parfumsearch">원하는 향수 찾기</a></li>
-        <li><a href="/nosesearch">가까운 시향 매장</a></li>
-        <li><a href="/qnalist">Q&A</a></li>
-    </nav>
-    {% if user and user.id %}
-    <div class="user-nickname">{{user.nick + '님'}}</div>
-    <a href="/mypage"><button type="button" class="mypage">마이 페이지</button></a>
-    <form action="/auth/logout" method="post">
-        <button class="logout" type="submit">로그아웃</button>
-    </form>
-    {% else %}
-    <a href="/login"><button class="login">로그인</button></a>
-    {% endif %}
+    <div class="head_login">
+        <a href="/"><img class="header_main" src="/uploads/logo-clean.jpg" alt="logo_img"/></a>
+        <div class="head_search">
+            <input type="text" class="search" placeholder="검색어 입력" name="search"/>
+            <button type="submit">검색</button>
+        </div>
+        {% if user and user.id %}
+        <form action="/auth/logout" method="post" class="logout">
+            <a href="/mypage" class="mypage">{{user.nick + '님'}}</a>
+            <button type="submit">로그아웃</button>
+        </form>
+        {% else %}
+        <a href="/login"><button class="login">로그인</button></a>
+        {% endif %}
+    </div>
+    <div class="head_menu">
+        <nav class="menu_bar">
+            <li><a href="/brand">브랜드 소개</a></li>
+            <li><a href="/parfumsearch">원하는 향수 찾기</a></li>
+            <li><a href="/nosesearch">가까운 시향 매장</a></li>
+            <li><a href="/qnalist">Q&A</a></li>
+        </nav>
+    </div>

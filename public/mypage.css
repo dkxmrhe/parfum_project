@@ -1,0 +1,9 @@
+section .join {
+    width: 50%;
+    margin-left: 25%;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
+}

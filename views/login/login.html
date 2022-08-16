@@ -5,25 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="/login.css" />
     <title>Parfum Library</title>
 </head>
 <body>
     <header>
         {% include 'header.html' %}
     </header>
-    <div class="login">
+    <section>
         <form action="/auth/login" method="post">
-            <input type="text" class="login_id" name="userid"/>
-            <input type="password" class="login_pwd" name="password"/>
-            <button type="submit" class="login_button">로그인</button>
+            <div class="login">
+                <input type="text" class="login_id" name="userid" placeholder="아이디 입력"/>
+                <input type="password" class="login_pwd" name="password" placeholder="비밀번호 입력"/>
+                <div class="join_idpw">
+                    <a href="/join" class="login_join">회원가입</a>
+                    <a href="/idpwdsearch" class="login_idpwdsearch">아이디/비밀번호 찾기</a>
+                </div>
+                <button type="submit" class="login_button">로그인</button>
+                <p>소셜 로그인</p>
+                <div class="social_login">
+                    <a class="kakao" href="/auth/kakao">
+                        <div class="kakao_login">
+                            <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"/><span>카카오</span>
+                        </div>
+                    </a>
+                    <a class="naver" id="naverLogin" href="/auth/naver">
+                        <div class="naver_login">
+                            <img src="uploads/login_naver.png"/>
+                            <span>네이버</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </form>
-        <a href="/join" class="login_join">회원가입</a>
-        <a href="/idpwdsearch" class="login_idpwdsearch">아이디/비밀번호 찾기</a>
-        <a class="kakao" href="/auth/kakao"><button>카카오톡으로 로그인</button></a>
-        <a class="naver" href="/auth/naver"><button>네이버로 로그인</button></a>
-    </div>   
+    </section>   
     <footer>
         {% include 'footer.html' %}
-    </footer>     
+    </footer>
 </body>
+
 </html>

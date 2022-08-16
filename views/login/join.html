@@ -5,47 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="/join.css" />
     <title>Parfum Library</title>
 </head>
 <body>
     <header>
         {% include 'header.html' %}
     </header>
-    <div class="join">
+    <section>
         <form action="/auth/join" method="post">
-            <span class="smallJoin">아이디는 6자리 이상 12자리 이하로 영어 소문자와 숫자로만 입력해주세요.</span>
-            <span>아이디 : </span><input type="text" class="join_id" name="userid" maxlength="12" placeholder="6자리 이상 12자리 이하 입력"/><br/>
-            <span class="smallJoin">비밀번호는 8자리 이상 16자리 이하로 영어 소문자와 숫자 특수문자로 입력해주세요.</span>
-            <span>비밀번호 : </span><input type="password" class="join_pwd" name="password" maxlength="16" placeholder="비밀번호 입력"/><br/>
-            <span class="smallJoin">입력한 비밀번호와 같은 비밀번호로 입력해주세요.</span>
-            <span>비밀번호 재확인 : </span><input type="password" class="join_pwd2" maxlength="16" placeholder="비밀번호 재입력"/><br/>
-            <span>닉네임은 8자리 이하로 입력해주세요.</span>
-            <span>닉네임 : </span><input type="text" class="join_nick" name="nick" maxlength="8"/><br/>
-            <span>이름을 입력해주세요.</span>
-            <span>이름 : </span><input type="text" class="join_name" name="name"/><br/>
-            <span>이메일을 입력해주세요.</span>
-            <span>이메일 : </span><input type="text" class="join_email1" name="email1"/> @ 
-            <select name="email2">
-                <option value="">이메일 입력</option>
-                <option value="naver.com">naver.com</option>
-                <option value="daum.net">daum.net</option>
-                <option value="gmail.com">gmail.com</option>
-            </select><br/>
-            <span>휴대폰 번호 : </span><input type="text" class="join_phone" name="phone"/><br/>
-            <span>성별 : </span><select name="gender">
-                <option value="">성별</option>
-                <option value="M">남자</option>
-                <option value="F">여자</option>
-            </select><br/>
-            <span>생일 : </span><input type="date" class="join_birth" name="birth"/><br/>
-            <span>주소 : </span><input type="text" id="join_zipcode" name="zipcode" placeholder="우편번호">
-            <input type="button" onclick="zipcode1()" value="우편번호 찾기"><br>
-            <input type="text" id="join_address" name="address" placeholder="주소"><br>
-            <input type="text" id="join_detailAddress" name="detailaddress" placeholder="상세주소"><br/>
-            <button type="submit">회원가입</button>
+            <div class="join">
+                <span class="main_join">아이디</span>
+                <input type="text" class="join_id" name="userid" maxlength="12" placeholder="6~12 영어와 숫자로만 입력"/>
+                <span class="small_join" id="small_id">아이디는 6자리 이상 12자리 이하로 영어 소문자와 숫자로만 입력해주세요.</span>
+                <span class="main_join">비밀번호</span>
+                <input type="password" class="join_pwd" name="password" maxlength="16" placeholder="비밀번호 입력"/>
+                <span class="small_join" id="small_pw1">비밀번호는 8자리 이상 16자리 이하로 영어 소문자와 숫자 특수문자로 입력해주세요.</span>
+                <span class="main_join">비밀번호 재확인</span>
+                <input type="password" class="join_pwd2" maxlength="16" placeholder="비밀번호 재입력"/>
+                <span class="small_join" id="small_pw2">입력한 비밀번호와 같은 비밀번호로 입력해주세요.</span>
+                <span class="main_join">닉네임</span>
+                <input type="text" class="join_nick" name="nick" maxlength="8" placeholder="8자 이하로 입력"/>
+                <span class="small_join" id="small_nick">닉네임은 8자리 이하로 입력해주세요.</span>
+                <span class="main_join">이름</span>
+                <input type="text" class="join_name" name="name"/>
+                <span class="small_join" id="small_name">이름을 입력해주세요.</span>
+                <span class="main_join">이메일</span>
+                <span>
+                    <input type="text" class="join_email1" name="email1"/> @ 
+                    <select name="email2">
+                        <option value="">이메일 입력</option>
+                        <option value="naver.com">naver.com</option>
+                        <option value="daum.net">daum.net</option>
+                        <option value="gmail.com">gmail.com</option>
+                    </select>
+                </span>
+                <span class="small_join" id="small_email">이메일을 입력해주세요.</span>
+                <span class="main_join">휴대폰 번호</span>
+                <input type="text" class="join_phone" name="phone" placeholder="'-'없이 입력"/>
+                <span class="small_join" id="small_phone">휴대폰 번호를 입력해주세요.</span>
+                <span class="main_join">성별</span>
+                <span>
+                    <select name="gender">
+                        <option value="">성별을 선택해주세요.</option>
+                        <option value="M">남자</option>
+                        <option value="F">여자</option>
+                    </select>
+                </span>
+                <span class="small_join" id="small_gender">성별을 입력해주세요.</span>
+                <span class="main_join">생일</span>
+                <input type="date" class="join_birth" name="birth"/>
+                <span class="small_join" id="small_birth">생일을 입력해주세요.</span>
+                <span class="main_join">주소</span>
+                <span><input type="text" id="join_zipcode" name="zipcode" placeholder="우편번호">
+                <input type="button" onclick="zipcode1()" value="우편번호 찾기" id="join_search"/></span>
+                <span><input type="text" id="join_address" name="address" placeholder="주소"><br>
+                <input type="text" id="join_detailAddress" name="detailaddress" placeholder="상세주소"></span>
+                <span class="small_join" id="small_address">주소를 입력해주세요.</span>
+                <div class="but">
+                    <button type="submit" class="join_sub">회원가입</button>
+                    <a href="/"><button type="button" class="join_cancel">취소</button></a>
+                </div>
+            </div>
         </form>
-        <a href="/"><button type="button" class="join_cancel">취소</button></a>
-    </div>        
+    </section>
     <footer>
         {% include 'footer.html' %}
     </footer>

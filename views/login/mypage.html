@@ -5,11 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="/mypage.css" />
     <title>Parfum Library</title>
 </head>
 <body>
-    <div class="mypage">
-        <form action="/auth/change" method="post">
+    <header>
+        {% include 'header.html' %}
+    </header>
+    <section>
+        {% if user.provider == local %}
+        <form action="/auth/change" method="post" class="mypage">
             <span>아이디 : </span><input type="text" class="mypage_id" name="userid" value="{{user.userid}}"/>
             <span>비밀번호 : </span><input type="password" class="mypage_pwd" name="password" placeholder="비밀번호 입력"/>
             <span>비밀번호 재확인 : </span><input type="password" class="mypage_pwd2" name="password" placeholder="비밀번호 재확인"/>
@@ -28,9 +33,15 @@
             <input type="text" id="mypage_address" name="address" placeholder="주소" value="{{user.address}}"><br>
             <input type="text" id="mypage_detailAddress" name="detailaddress" placeholder="상세주소" value="{{user.detailaddress}}">
             <button type="submit">회원정보 수정</button>
+            <a href="/"><button type="button" class="mypage_cancel">취소</button></a>
         </form>
-        <a href="/"><button type="button" class="mypage_cancel">취소</button></a>
-    </div>
+        {% else %}
+        <script> alert('소셜로 로그인한 경우에는 정보를 수정할 수 없습니다.');</script>
+        {% endif %}
+    </section>
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
     function zipcode() {
