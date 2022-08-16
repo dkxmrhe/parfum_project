@@ -32,7 +32,7 @@ router.post('/write', upload.single('photo'), async(req, res, next) => {
                 photo: req.file.filename,
                 component: req.body.component,
             });
-            res.redirect('/brandParfumWrite');
+            res.redirect('/parfumWrite');
     } catch(err) {
         console.error(err);
         next(err);

@@ -13,30 +13,43 @@
         {% include 'header.html' %}
     </header>
     <section>
-        {% if user.provider == local %}
+        {% if user.provider == 'local' %}
         <form action="/auth/change" method="post" class="mypage">
-            <span>아이디 : </span><input type="text" class="mypage_id" name="userid" value="{{user.userid}}"/>
-            <span>비밀번호 : </span><input type="password" class="mypage_pwd" name="password" placeholder="비밀번호 입력"/>
-            <span>비밀번호 재확인 : </span><input type="password" class="mypage_pwd2" name="password" placeholder="비밀번호 재확인"/>
-            <span>닉네임 : </span><input type="text" class="mypage_nick" name="nick" value="{{user.nick}}"/>
-            <span>이름 : </span><input type="text" class="mypage_name" name="name" value="{{user.name}}"/>
-            <span>이메일 : </span><input type="email" class="mypage_email1" name="email1"/> @ 
-            <select name="email2">
-                <option value="">이메일 입력</option>
-                <option value="naver.com">naver.com</option>
-                <option value="daum.net">daum.net</option>
-                <option value="gmail.com">gmail.com</option>
-            </select>
-            <span>휴대폰 번호 : </span><input type="text" class="mypage_phone" name="phone" value="{{user.phone}}"/>
-            <span>주소 : </span><input type="text" id="mypage_zipcode" name="zipcode" placeholder="우편번호" value="{{user.zipcode}}">
-            <input type="button" onclick="zipcode()" value="우편번호 찾기"><br>
-            <input type="text" id="mypage_address" name="address" placeholder="주소" value="{{user.address}}"><br>
-            <input type="text" id="mypage_detailAddress" name="detailaddress" placeholder="상세주소" value="{{user.detailaddress}}">
-            <button type="submit">회원정보 수정</button>
-            <a href="/"><button type="button" class="mypage_cancel">취소</button></a>
+            <span class="main_mypage">아이디</span>
+            <input type="text" class="mypage_id" name="userid" value="{{user.userid}}"/>
+            <span class="main_mypage">비밀번호</span>
+            <input type="password" class="mypage_pwd" name="password" placeholder="비밀번호 입력"/>
+            <span class="main_mypage">비밀번호 재확인</span>
+            <input type="password" class="mypage_pwd2" name="password" placeholder="비밀번호 재확인"/>
+            <span class="main_mypage">닉네임</span>
+            <input type="text" class="mypage_nick" name="nick" value="{{user.nick}}"/>
+            <span class="main_mypage">이름</span>
+            <input type="text" class="mypage_name" name="name" value="{{user.name}}"/>
+            <span class="main_mypage">이메일</span>
+            <span>
+                <input type="email" class="mypage_email1" name="email1"/> @ 
+                <select name="email2">
+                    <option value="">이메일 입력</option>
+                    <option value="naver.com">naver.com</option>
+                    <option value="daum.net">daum.net</option>
+                    <option value="gmail.com">gmail.com</option>
+                </select>
+            </span>
+            <span class="main_mypage">휴대폰 번호</span>
+            <input type="text" class="mypage_phone" name="phone" value="{{user.phone}}"/>
+            <span class="main_mypage">주소</span>
+            <span>
+                <input type="text" id="mypage_zipcode" name="zipcode" placeholder="우편번호" value="{{user.zipcode}}" />
+                <input type="button" onclick="zipcode()" value="우편번호 찾기" id="mypage_search" />
+            </span>
+            <input type="text" id="mypage_address" name="address" placeholder="주소" value="{{user.address}}" />
+            <input type="text" id="mypage_detailAddress" name="detailaddress" placeholder="상세주소" value="{{user.detailaddress}}" />
+            <div class="mypage_but">
+                <button type="submit" class="mypage_sub">정보 수정</button>
+                <a href="/"><button type="button" class="mypage_cancel">취소</button></a>
+            </div>
         </form>
         {% else %}
-        <script> alert('소셜로 로그인한 경우에는 정보를 수정할 수 없습니다.');</script>
         {% endif %}
     </section>
     <footer>

@@ -27,7 +27,7 @@ router.post('/join', isNotLoggedIn, async(req, res, next) => {
             address,
             detailaddress,
         });
-        return res.redirect('/');
+        return res.redirect('/login');
     } catch(err) {
         console.error(err);
         return next(err);

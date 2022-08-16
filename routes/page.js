@@ -28,20 +28,20 @@ router.get('/mypage', isLoggedIn, (req, res) => {
     res.render('login/mypage');
 });
 
-router.get('/qnalist', async(req, res) => {
+router.get('/boardList', async(req, res) => {
     let boards = await Board.findAll({
         attributes: ['id', 'subject', 'author', [sequelize.fn("DATE_FORMAT", sequelize.col('created_At'),"%Y-%m-%d %H:%i:%s"), 'createdAt',], 'watch'],
         order: [['created_At', 'DESC']]
     });
-    res.render('board/qnalist', {boards: boards});
+    res.render('board/boardList', {boards: boards});
 });
 
-router.get('/qnawrite', isLoggedIn, (req, res) => {
+router.get('/boardWrite', isLoggedIn, (req, res) => {
     if(!isLoggedIn) res.rendirect('login/login');
-    else res.render('board/qnawrite');
+    else res.render('board/boardWrite');
 });
 
-router.get('/qnaread', async(req, res) => {
+router.get('/boardRead', async(req, res) => {
     let id = req.query.id;
     let board = await Board.findAll({ where: {id : id}});
     let updwatch = await Board.increment({watch: 1}, {where: {id: id}})
@@ -50,13 +50,13 @@ router.get('/qnaread', async(req, res) => {
                             }).catch((err) => {
                                 console.error(err);
                             });
-    res.render('board/qnaread', {board: board[0]}, updwatch);
+    res.render('board/boardRead', {board: board[0]}, updwatch);
 });
 
-router.get('/qnaupdate', isLoggedIn, async(req, res) => {
+router.get('/boardUpdate', isLoggedIn, async(req, res) => {
     let id = req.query.id;
     let board = await Board.findAll({where: {id: id}});
-    res.render('board/qnaupdate', {board: board[0]});
+    res.render('board/boardUpdate', {board: board[0]});
 });
 
 router.get('/parfumRead', async(req, res) => {
@@ -71,18 +71,18 @@ router.get('/parfumRead', async(req, res) => {
             where: {parfum_id: parfumno},
             order: [['createdAt', 'ASC']]
         });
-        res.render('brand/brandParfumRead', {parfums: parfums[0], posts: posts});
+        res.render('parfum/parfumRead', {parfums: parfums[0], posts: posts});
     } catch(err) {
         console.error(err);
     }
 });
-router.get('/parfumsearch', async(req,res) => {
+router.get('/parfumSearch', async(req,res) => {
     let parfums = await Parfum.findAll({
         attributes: ['id','brandname','name','photo']
     });
-    res.render('brand/brandParfumList', {parfums: parfums});
+    res.render('parfum/parfumList', {parfums: parfums});
 });
-router.get('/brandParfumWrite', isLoggedIn, (req, res) => {
-    res.render('brand/brandParfumWrite');
+router.get('/ParfumWrite', isLoggedIn, (req, res) => {
+    res.render('parfum/parfumWrite');
 });
 module.exports = router;

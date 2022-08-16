@@ -13,7 +13,7 @@ router.post('/brandCreate', async(req, res) => {
                 country,
             });    
         }
-        return res.redirect('/brandParfumWrite');
+        return res.redirect('/parfumWrite');
     } catch(err) {
         console.error(err);
         return next(err);

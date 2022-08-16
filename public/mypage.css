@@ -1,4 +1,4 @@
-section .join {
+section .mypage {
     width: 50%;
     margin-left: 25%;
     height: 800px;
@@ -6,4 +6,54 @@ section .join {
     flex-direction: column;
     justify-content: space-around;
     align-content: space-around;
+}
+
+section .mypage .main_mypage {
+    font-size: 14px;
+}
+
+section .mypage input {
+    width: 200px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid rgb(2, 35, 2);
+}
+
+section .mypage span #mypage_address {
+    margin-bottom: 5px;
+}
+
+section .mypage #mypage_search {
+    height: 20px;
+    width: 100px;
+    background-color: rgb(5, 67, 5);
+    color: bisque;
+    border-radius: 5px;
+    border: 1px solid rgb(2, 35, 2);
+}
+
+section .mypage .mypage_but {
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+    margin-left: 30%;
+}
+
+section .mypage .mypage_but button {
+    width: 80px;
+    height: 30px;
+}
+
+section .mypage .mypage_but .mypage_sub {
+    background-color: rgb(5, 67, 5);
+    color: bisque;
+    border-radius: 5px;
+    border: 1px solid rgb(2, 35, 2);
+}
+
+section .mypage .mypage_but .mypage_cancel {
+    background-color: white;
+    color: rgb(5, 67, 5);
+    border-radius: 5px;
+    border: 1px solid rgb(2, 35, 2);
 }

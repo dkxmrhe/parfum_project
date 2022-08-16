@@ -18,7 +18,7 @@ router.post('/create', isLoggedIn, async(req, res, next) => {
             content,
             author: nick,
         });
-        return res.redirect('/qnalist');
+        return res.redirect('/boardList');
     } catch(err) {
         console.error(err);
         return next(err);
@@ -33,7 +33,7 @@ router.post('/update', isLoggedIn, async(req, res, next) => {
         }, {
             where: {id: req.body.bid}
         });
-        return res.redirect('/qnalist');
+        return res.redirect('/boardList');
     } catch(err) {
         console.error(err);
         return next(err);
@@ -48,7 +48,7 @@ router.post('/delete', isLoggedIn, async(req, res, next) => {
                 id: bid,
             }
         });
-        return res.redirect('/qnalist');
+        return res.redirect('/boardList');
     } catch(err) {
         console.error(err);
         return next(err);

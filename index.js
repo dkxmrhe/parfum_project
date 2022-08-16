@@ -12,7 +12,7 @@ const passportConfig = require('./passport');
 dotenv.config();
 const pageRouter = require('./routes/page');
 const authRouter = require('./routes/auth');
-const qnaRouter = require('./routes/qna');
+const boardRouter = require('./routes/board');
 const parfumRouter = require('./routes/parfum');
 const brandRouter = require('./routes/brand');
 const postRouter = require('./routes/post');
@@ -53,7 +53,7 @@ app.use(passport.session());
 
 app.use('/', pageRouter);
 app.use('/auth', authRouter);
-app.use('/qna', qnaRouter);
+app.use('/board', boardRouter);
 app.use('/brand', brandRouter);
 app.use('/parfum', parfumRouter);
 app.use('/post', postRouter);
