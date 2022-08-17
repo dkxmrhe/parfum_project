@@ -5,20 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="/board/boardWrite.css" />
     <title>Parfum Library</title>
 </head>
 <body>
     <header>
         {% include 'header.html' %}
     </header>
-    <form action="/board/create" method="post">
-    제목 : <input type="text" name="subject" placeholder="30자 이하로 입력해주세요." maxlength="30"/>작성자 : {{user.nick}}<br/>
-    <input type="text" name="nick" value="{{user.nick}}" hidden/>
-    <hr />
-    내용 : <textarea name="content"></textarea>
-    <button type="submit">글 등록</button>
-    </form>
-    <a href="/boardList">취소</a>
+    <section>
+        <form action="/board/create" method="post" class="board_write">
+            <input type="text" name="nick" value="{{user.nick}}" hidden/>
+            <div class="write_subject">제목 : <input type="text" name="subject" placeholder="30자 이하로 입력해주세요." maxlength="30"/></div>
+            <div class="write_author">작성자 : {{user.nick}}</div>
+            <div class="write_content">내용 : <textarea name="content" cols="80" rows="40"></textarea></div>
+            <button type="submit">글 등록</button>
+        </form>
+    </section>
     <footer>
         {% include 'footer.html' %}
     </footer>

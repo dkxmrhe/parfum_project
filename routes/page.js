@@ -30,7 +30,7 @@ router.get('/mypage', isLoggedIn, (req, res) => {
 
 router.get('/boardList', async(req, res) => {
     let boards = await Board.findAll({
-        attributes: ['id', 'subject', 'author', [sequelize.fn("DATE_FORMAT", sequelize.col('created_At'),"%Y-%m-%d %H:%i:%s"), 'createdAt',], 'watch'],
+        attributes: ['id', 'subject', 'author', [sequelize.fn("DATE_FORMAT", sequelize.col('created_At'),"%Y-%m-%d"), 'createdAt',], 'watch'],
         order: [['created_At', 'DESC']]
     });
     res.render('board/boardList', {boards: boards});
@@ -43,7 +43,9 @@ router.get('/boardWrite', isLoggedIn, (req, res) => {
 
 router.get('/boardRead', async(req, res) => {
     let id = req.query.id;
-    let board = await Board.findAll({ where: {id : id}});
+    let board = await Board.findAll({ where: {id : id},
+        attributes: ['id', 'subject', 'author', 'content', [sequelize.fn("DATE_FORMAT", sequelize.col('created_At'),"%Y-%m-%d %h:%i:%s"), 'createdAt',], 'watch'],
+    });
     let updwatch = await Board.increment({watch: 1}, {where: {id: id}})
                             .then((result) => {
                                 console.log('watch up!');

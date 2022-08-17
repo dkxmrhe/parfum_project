@@ -5,19 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="/board/boardUpdate.css" />
     <title>Parfum Library</title>
 </head>
 <body>
     <header>
         {% include 'header.html' %}
     </header>
-    <form action="/board/update" method="post">
-        <input type="text" name="bid" value="{{board.id}}" hidden/>
-        <input type="text" name="subject" value="{{board.subject}}"/>
-        <input type="text" readonly value="{{board.author}}"/>
-        <textarea name="content">{{board.content}}</textarea>
-        <button type="submit">게시글 수정하기</button>
-    </form>
+    <section>
+        <form action="/board/update" method="post" class="board_update">
+            <input type="text" name="bid" value="{{board.id}}" hidden/>
+            <div class="update_subject">제목 : <input type="text" name="subject" value="{{board.subject}}"/></div>
+            <div class="update_author">작성자 : {{board.author}}</div>
+            <div class="update_content">
+                <textarea name="content" cols="85" rows="40">{{board.content}}</textarea>
+            </div>
+            <button type="submit">게시글 수정</button>
+        </form>
+    </section>
     <footer>
         {% include 'footer.html' %}
     </footer>

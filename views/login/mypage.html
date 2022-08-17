@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/main.css" />
-    <link rel="stylesheet" href="/mypage.css" />
+    <link rel="stylesheet" href="/user/mypage.css" />
     <title>Parfum Library</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
         {% if user.provider == 'local' %}
         <form action="/auth/change" method="post" class="mypage">
             <span class="main_mypage">아이디</span>
-            <input type="text" class="mypage_id" name="userid" value="{{user.userid}}"/>
+            <input type="text" class="mypage_id" name="userid" value="{{user.userid}}" readonly/>
             <span class="main_mypage">비밀번호</span>
             <input type="password" class="mypage_pwd" name="password" placeholder="비밀번호 입력"/>
             <span class="main_mypage">비밀번호 재확인</span>

@@ -50,6 +50,7 @@ header .head_login .head_search button {
     outline: none;
     color: bisque;
     float: right;
+    cursor: pointer;
 }
 
 header .head_login .login {
@@ -79,6 +80,7 @@ header .logout button {
     background-color: white;
     border: 1px solid rgb(2, 35, 2);
     border-radius: 5px;
+    cursor: pointer;
 }
 
 header .head_menu {
