@@ -71,6 +71,7 @@ router.get('/parfumRead', async(req, res) => {
         });
         let posts = await Post.findAll({
             where: {parfum_id: parfumno},
+            attributes: ['id', 'user_nick', 'parfum_id', 'content', [sequelize.fn("DATE_FORMAT", sequelize.col('created_At'),"%Y-%m-%d %h:%i:%s"), 'createdAt',]],
             order: [['createdAt', 'ASC']]
         });
         res.render('parfum/parfumRead', {parfums: parfums[0], posts: posts});

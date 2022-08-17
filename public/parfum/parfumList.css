@@ -1,0 +1,45 @@
+section .parfum_list {
+    width: 70%;
+    margin-left: 15%;
+    height: 800px;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+section .parfum_list .list_container {
+    width: 120px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+section .parfum_list .list_container:hover {
+    background-color: rgb(219, 219, 219);
+}
+
+section .parfum_list .list_container a {
+    color: rgb(2, 35, 2);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+section .parfum_list .list_container a img {
+    width: 80px;
+    height: 100px;
+}
+section .parfum_list .list_container .list_brandname {
+    color: gray;
+    font-size: 13px;
+    text-align: center;
+}
+
+section .parfum_list .list_container .list_name {
+    color: rgb(2, 35, 2);
+    font-size: 15px;
+    text-align: center;
+}
