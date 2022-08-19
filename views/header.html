@@ -1,10 +1,10 @@
 
     <div class="head_login">
         <a href="/"><img class="header_main" src="/uploads/logo.jpg" alt="logo_img"/></a>
-        <div class="head_search">
+        <form class="head_search" action="/parfum/search" method="get">
             <input type="text" class="search" placeholder="검색어 입력" name="search"/>
             <button type="submit">검색</button>
-        </div>
+        </form>
         {% if user and user.id %}
         <form action="/auth/logout" method="post" class="logout">
             <a href="/mypage" class="mypage">{{user.nick + '님'}}</a>

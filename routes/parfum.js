@@ -1,9 +1,10 @@
 const express = require('express');
 const multer = require('multer');
+const sequelize = require('sequelize');
 const path = require('path');
 const fs = require('fs');
 const Parfum = require('../models/parfum');
-const { Brand } = require('../models');
+const Op = sequelize.Op;
 
 const router = express.Router();
 
@@ -39,4 +40,21 @@ router.post('/write', upload.single('photo'), async(req, res, next) => {
     }
 });
 
+router.get('/search', async(req, res, next) => {
+    let search = req.query.search;
+    try {
+        let parfums = await Parfum.findAll({
+            where: {
+                    [Op.or]: [
+                        {name: {[Op.like]: `%${search}%`}},
+                        {brandname: {[Op.like]: `%${search}%`}},
+                    ],
+            }
+        });
+        res.render('parfum/parfumList', {parfums: parfums});
+    } catch(err) {
+        console.error(err);
+        next(err);
+    }
+});
 module.exports = router;
