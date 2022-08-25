@@ -13,14 +13,14 @@
         {% include 'header.html' %}
     </header>
     <section>
-        <form action="/auth/join" method="post">
+        <form action="/auth/join" name="join_form" method="post">
             <div class="join">
                 <span class="main_join">아이디</span>
                 <input type="text" class="join_id" name="userid" maxlength="12" placeholder="6~12 영어와 숫자로만 입력"/>
                 <span class="small_join" id="small_id">아이디는 6자리 이상 12자리 이하로 영어 소문자와 숫자로만 입력해주세요.</span>
                 <span class="main_join">비밀번호</span>
                 <input type="password" class="join_pwd" name="password" maxlength="16" placeholder="비밀번호 입력"/>
-                <span class="small_join" id="small_pw1">비밀번호는 8자리 이상 16자리 이하로 영어 소문자와 숫자 특수문자로 입력해주세요.</span>
+                <span class="small_join" id="small_pw1">비밀번호는 영문자+숫자+특수문자 조합으로 8~25자리로 입력해주세요.</span>
                 <span class="main_join">비밀번호 재확인</span>
                 <input type="password" class="join_pwd2" maxlength="16" placeholder="비밀번호 재입력"/>
                 <span class="small_join" id="small_pw2">입력한 비밀번호와 같은 비밀번호로 입력해주세요.</span>
@@ -33,7 +33,7 @@
                 <span class="main_join">이메일</span>
                 <span>
                     <input type="text" class="join_email1" name="email1"/> @ 
-                    <select name="email2">
+                    <select name="email2" class="join_email2">
                         <option value="">이메일 입력</option>
                         <option value="naver.com">naver.com</option>
                         <option value="daum.net">daum.net</option>
@@ -46,7 +46,7 @@
                 <span class="small_join" id="small_phone">휴대폰 번호를 입력해주세요.</span>
                 <span class="main_join">성별</span>
                 <span>
-                    <select name="gender">
+                    <select name="gender" class="join_gender">
                         <option value="">성별을 선택해주세요.</option>
                         <option value="M">남자</option>
                         <option value="F">여자</option>
@@ -63,7 +63,7 @@
                 <input type="text" id="join_detailAddress" name="detailaddress" placeholder="상세주소"></span>
                 <span class="small_join" id="small_address">주소를 입력해주세요.</span>
                 <div class="but">
-                    <button type="submit" class="join_sub">회원가입</button>
+                    <button type="button" class="join_sub" onclick="join_check();">회원가입</button>
                     <a href="/"><button type="button" class="join_cancel">취소</button></a>
                 </div>
             </div>
@@ -72,6 +72,7 @@
     <footer>
         {% include 'footer.html' %}
     </footer>
+    <script src="../user/join.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
         function zipcode1() {

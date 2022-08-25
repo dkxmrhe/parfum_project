@@ -14,7 +14,7 @@
     </header>
     <section>
         {% if user.provider == 'local' %}
-        <form action="/auth/change" method="post" class="mypage">
+        <form action="/auth/change" method="post" class="mypage" name="mypage_form">
             <span class="main_mypage">아이디</span>
             <input type="text" class="mypage_id" name="userid" value="{{user.userid}}" readonly/>
             <span class="main_mypage">비밀번호</span>
@@ -28,7 +28,7 @@
             <span class="main_mypage">이메일</span>
             <span>
                 <input type="email" class="mypage_email1" name="email1"/> @ 
-                <select name="email2">
+                <select name="email2" class="mypage_email2">
                     <option value="">이메일 입력</option>
                     <option value="naver.com">naver.com</option>
                     <option value="daum.net">daum.net</option>
@@ -45,7 +45,7 @@
             <input type="text" id="mypage_address" name="address" placeholder="주소" value="{{user.address}}" />
             <input type="text" id="mypage_detailAddress" name="detailaddress" placeholder="상세주소" value="{{user.detailaddress}}" />
             <div class="mypage_but">
-                <button type="submit" class="mypage_sub">정보 수정</button>
+                <button type="button" class="mypage_sub" onclick="mypage_check();">정보 수정</button>
                 <a href="/"><button type="button" class="mypage_cancel">취소</button></a>
             </div>
         </form>
@@ -55,6 +55,7 @@
     <footer>
         {% include 'footer.html' %}
     </footer>
+    <script src="../user/mypage.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
     function zipcode() {

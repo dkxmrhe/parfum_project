@@ -13,7 +13,7 @@
         {% include 'header.html' %}
     </header>
     <section>
-        <form action="/auth/login" method="post">
+        <form action="/auth/login" name="login_form" method="post">
             <div class="login">
                 <input type="text" class="login_id" name="userid" placeholder="아이디 입력"/>
                 <input type="password" class="login_pwd" name="password" placeholder="비밀번호 입력"/>
@@ -21,7 +21,7 @@
                     <a href="/join" class="login_join">회원가입</a>
                     <!--<a href="/idpwdsearch" class="login_idpwdsearch">아이디/비밀번호 찾기</a>-->
                 </div>
-                <button type="submit" class="login_button">로그인</button>
+                <button type="button" class="login_button" onclick="login_check();">로그인</button>
                 <p>소셜 로그인</p>
                 <div class="social_login">
                     <a class="kakao" href="/auth/kakao">
@@ -42,6 +42,7 @@
     <footer>
         {% include 'footer.html' %}
     </footer>
+    <script src="../user/login.js"></script>
 </body>
 
 </html>

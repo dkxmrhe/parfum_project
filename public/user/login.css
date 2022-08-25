@@ -28,6 +28,7 @@ section .login .login_button {
     border-radius: 5px;
     border: 1px solid rgb(2, 35, 2);
     color: bisque;
+    cursor: pointer;
 }
 section .login .social_login {
     display: flex;

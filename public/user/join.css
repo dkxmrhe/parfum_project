@@ -21,7 +21,7 @@ section .join input {
 }
 
 section .join .small_join {
-    color: rgb(246, 69, 69);
+    color: rgb(2, 35, 2);
     font-size: 12px;
 }
 
@@ -36,6 +36,7 @@ section .join #join_search {
     color: bisque;
     border-radius: 5px;
     border: 1px solid rgb(2, 35, 2);
+    cursor: pointer;
 }
 
 section .join .but {
@@ -53,6 +54,7 @@ section .join .but .join_sub {
     color: bisque;
     border-radius: 5px;
     border: 1px solid rgb(2, 35, 2);
+    cursor: pointer;
 }
 
 section .join .but .join_cancel {
@@ -60,4 +62,5 @@ section .join .but .join_cancel {
     color: rgb(5, 67, 5);
     border-radius: 5px;
     border: 1px solid rgb(2, 35, 2);
+    cursor: pointer;
 }
