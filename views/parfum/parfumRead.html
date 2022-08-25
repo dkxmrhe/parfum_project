@@ -22,15 +22,15 @@
                     <p class="read_component">향수 성분 : {{parfums.component}}</p>
                 </div>
             </div>
-            <form action="/post/comment" method="post">
+            <form action="/post/comment" method="post" name="comment_form">
                 <p>댓글 입력</p>
                 <div class="create_comment">
                     <input type="hidden" value="{{parfums.id}}" name="parfumno" />
                     <input type="hidden" value="{{user.nick}}" name="usernick" />
                     <input type="hidden" value="{{parfums.brandname}}" name="parfumbrandname" />
                     <input type="hidden" value="{{parfums.name}}" name="parfumname" />
-                    <textarea name="content" placeholder="향수에 대한 댓글을 입력해주세요." rows="4" cols="70"></textarea>
-                    <button type="submit">등록</button>
+                    <textarea name="content" placeholder="향수에 대한 댓글을 입력해주세요." rows="4" cols="70" class="comment_content"></textarea>
+                    <button type="button" onclick="comment_check();">등록</button>
                 </div>
             </form>
             <div class="read_comment">
@@ -46,5 +46,6 @@
     <footer>
         {% include 'footer.html' %}
     </footer>
+    <script src="../parfum/parfumRead.js"></script>
 </body>
 </html>

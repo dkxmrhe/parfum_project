@@ -12,14 +12,14 @@
         {% include 'header.html' %}
     </header>
     <section>
-        <form action="/parfum/write" method="post" enctype="multipart/form-data">
+        <form action="/parfum/write" method="post" enctype="multipart/form-data" name="parfum_form">
             향수 사진 : <input type="file" class="writePhoto" name="photo" accept="image/*" />
             브랜드 이름 : <input type="text" class="writeBrandName" name="brandname" />
             향수 이름 : <input type="text" class="writeParfumName" name="name" />
             향수 성분 : <textarea name="component" class="writeParfumComponent"></textarea>
-            <button type="submit">향수 등록</button>
+            <button type="button" onclick="parfum_check();">향수 등록</button>
         </form>
-        <form action="/brand/brandCreate" method="post">
+        <form action="/brand/brandCreate" method="post" name="brand_form">
             브랜드 이름 : <input type="text" class="writeName" name="name" />
             나라 : <input type="text" class="writeCountry" name="country" />
             <button type="submit">브랜드 등록</button>
@@ -28,5 +28,6 @@
     <footer>
         {% include 'footer.html' %}
     </footer>
+    <script src="../parfum/parfumWrite.js"></script>
 </body>
 </html>
