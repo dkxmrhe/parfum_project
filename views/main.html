@@ -6,13 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parfum Library</title>
     <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="./main/mainSection.css" />
+    <script type="text/javascript">
+        let xhttp;
+
+        function createHttpRequest(){
+        xhttp = new XMLHttpRequest();
+      }
+
+      function mySend1(){
+        createHttpRequest();
+        xhttp.onreadystatechange = callFunction;
+        xhttp.open("GET", "../main/characteristic.html", true);
+        xhttp.send(null);
+      }
+
+      function mySend2() {
+        createHttpRequest();
+        xhttp.onreadystatechange = callFunction;
+        xhttp.open("GET", "../main/history.html", true);
+        xhttp.send(null);
+      }
+
+      function mySend3() {
+        createHttpRequest();
+        xhttp.onreadystatechange = callFunction;
+        xhttp.open("GET", "../main/incense.html", true);
+        xhttp.send(null);
+      }
+
+      function mySend4() {
+        createHttpRequest();
+        xhttp.onreadystatechange = callFunction;
+        xhttp.open("GET", "../main/type.html", true);
+        xhttp.send(null);
+      }
+
+      function callFunction(){
+        if(xhttp.readyState == 4) {
+          if(xhttp.status == 200){
+            var responseData = xhttp.responseText;
+            document.getElementById("result").innerHTML = responseData;
+          }
+        }
+      }
+
+      window.onload = function () {
+          document.getElementById("charcteristic").onclick();
+      }
+    </script>
 </head>
 <body>
     <header>
         {% include 'header.html' %}
     </header>
     <section>
-    향수에 대하여! 다 적을것?
+        <div class="main_but">
+            <button type="button" id="charcteristic" onclick="mySend1();">특징</button>
+            <button type="button" id="history" onclick="mySend2()">역사</button>
+            <button type="button" id="note" onclick="mySend3()">노트</button>
+            <button type="button" id="type" onclick="mySend4()">향의 종류</button>
+        </div>
+        <div id="result"></div>
     </section>
     <footer>
         {% include 'footer.html' %}

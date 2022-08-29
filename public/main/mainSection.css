@@ -1,0 +1,41 @@
+section {
+    width: 70%;
+    margin-left: 15%;   
+}
+
+section .main_but {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 40px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+}
+
+section .main_but button {
+    border: 1px solid rgb(2, 35, 2);
+    background-color: rgb(5, 67, 5);
+    color: bisque;
+    width: 25%;
+    height: 40px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+section #result {
+    width: 100%;
+    padding: 0;
+    color: rgb(2, 35, 2);
+    background-color: rgb(255, 251, 246);
+    border: 1px solid rgb(2, 35, 2);
+    white-space: pre-line;
+}
+
+section #result h3 {
+    text-align: center;
+}
+
+section #result h4 {
+    text-align: center;
+}

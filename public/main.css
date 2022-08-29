@@ -106,6 +106,32 @@ header .head_menu .menu_bar li a {
 }
 
 section {
-    height: 1000px;
+    height: 100%;
     margin-top: 50px;
+}
+
+footer {
+    height: 130px;
+    background-color: rgb(5, 67, 5);
+    color: bisque;
+    margin-top: 50px;
+    width: 100%;
+}
+
+footer div {
+    width: 70%;
+    margin-left: 15%;
+    padding: 10px;
+}
+footer a {
+    color: darkgray;
+    text-decoration: none;
+}
+
+footer nav {
+    color: darkgray;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
