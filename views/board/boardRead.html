@@ -28,8 +28,8 @@
             <div class="read_buttons">
                 <a href="/boardList" class="read_boardList"><button>목록</button></a>
                 <div>
+                    {% if user.nick == board.author %}
                     <a href="/boardUpdate?id={{board.id}}"><button>게시글 수정</button></a>
-                    {% if user.nick == board.author %}    
                     <form action="/board/delete" method="post">
                         <input type="text" name="bid" value="{{board.id}}" hidden/>
                         <button class="board_delete" type="submit">게시글 삭제</button>
