@@ -7,7 +7,6 @@ module.exports = {
       database: "parfum_database",
       host: "127.0.0.1",
       dialect: "mysql",
-      timezone: "Asia/Seoul"
     },
     test: {
       username: "root",
@@ -15,7 +14,6 @@ module.exports = {
       database: "parfum_database_test",
       host: "127.0.0.1",
       dialect: "mysql",
-      timezone: "Asia/Seoul"
     },
     production: {
       username: "root",
@@ -24,6 +22,5 @@ module.exports = {
       host: "127.0.0.1",
       dialect: "mysql",
       logging: false,
-      timezone: "Asia/Seoul"
     }
 }
