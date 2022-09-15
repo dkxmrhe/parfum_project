@@ -17,7 +17,7 @@
             {% for parfum in parfums %}
             <div class="list_container">
                 <a href="/parfumRead?no={{parfum.id}}">
-                    <img src="/uploads/{{parfum.photo}}"/>
+                    <img src="{{parfum.photo}}"/>
                     <span class="list_brandname">{{parfum.brandname}}</span>
                     <span class="list_name">{{parfum.name}}</span>
                 </a>

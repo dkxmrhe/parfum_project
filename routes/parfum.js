@@ -28,7 +28,7 @@ let storage = multer({
         s3: new AWS.S3(),
         bucket: 'parfumlibrary',
         key(req, file, cb) {
-            cb(null, `original/${file.originalname}`);
+            cb(null, `uploads/${file.originalname}`);
         },
     }),
     limits: { fileSize: 5 * 1024 * 1024 },
