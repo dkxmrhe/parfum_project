@@ -39,7 +39,7 @@ router.post('/write', upload.single('photo'), async(req, res, next) => {
             await Parfum.create({
                 brandname: req.body.brandname,
                 name: req.body.name,
-                photo: req.file.filename,
+                photo: req.file.location,
                 component: req.body.component,
             });
             res.redirect('/parfumWrite');
