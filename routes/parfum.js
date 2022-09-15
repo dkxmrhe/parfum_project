@@ -3,6 +3,8 @@ const multer = require('multer');
 const sequelize = require('sequelize');
 const path = require('path');
 const fs = require('fs');
+const AWS = require('aws-sdk');
+const multerS3 = require('multer-s3');
 const Parfum = require('../models/parfum');
 const Op = sequelize.Op;
 
@@ -14,13 +16,22 @@ try {
     console.error('uploads 폴더가 없어 uploads 폴더를 생성합니다.');
     fs.mkdirSync('uploads');
 }
-let storage = multer.diskStorage({
-    destination(req, file, cb) {
-        cb(null, 'uploads/');
-    },
-    filename(req, file, cb) {
-        cb(null, file.originalname);
-    }
+
+AWS.config.update({
+    accessKeyId: process.env.S3_ACCESS_KEY_ID,
+    secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+    region: 'ap-northeast-2',
+});
+
+let storage = multer({
+    storage:multerS3({
+        s3: new AWS.S3(),
+        bucket: 'parfumlibrary',
+        key(req, file, cb) {
+            cb(null, `original/${file.originalname}`);
+        },
+    }),
+    limits: { fileSize: 5 * 1024 * 1024 },
 });
 
 let upload = multer({storage: storage});
