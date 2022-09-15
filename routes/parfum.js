@@ -23,7 +23,7 @@ AWS.config.update({
     region: 'ap-northeast-2',
 });
 
-let storage = multer({
+let upload = multer({
     storage:multerS3({
         s3: new AWS.S3(),
         bucket: 'parfumlibrary',
@@ -33,8 +33,6 @@ let storage = multer({
     }),
     limits: { fileSize: 5 * 1024 * 1024 },
 });
-
-let upload = multer({storage: storage});
 
 router.post('/write', upload.single('photo'), async(req, res, next) => {
     try{
